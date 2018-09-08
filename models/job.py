@@ -11,23 +11,11 @@ import uuid
  'financeStage': '成长型(B轮)', 'companyFullName': '深圳市慧择时代科技有限公司', 'companySize': '500-2000人', 
  'positionAdvantage': '准上市公司 多样化福利 领导nice', 'adWord': 0, 'education': '大专', 'plus': None, 'approve': 1, 
  'secondType': None, 'imState': 'threeDays', 'score': 0, 'positionId': 2544334, 'gradeDescription': None, 
- 'district': '南山区', 'companyLabelList': ['带薪年假', '定期体检', '绩效奖金', '午餐补助']
+ 'district': '南山区', 'companyLabelList': '带薪年假 定期体检 绩效奖金 午餐补助'}]
 """
 class JobModel(db.Model, ModelMixin):  
     __tablename__ = 'job'
     id = db.Column(db.String(40), primary_key=True)
-    # title = db.Column(db.String(40))
-    # # company_name = db.Column(db.String(128))
-    # location = db.Column(db.String(128))
-    # ctime = db.Column(db.Integer)
-    # # salary = db.Column(db.String(40))
-    # field = db.Column(db.String(40))
-    # company_size = db.Column(db.String(40))
-    # stage = db.Column(db.String(40))
-    # lng = db.Column(db.Float)
-    # lat = db.Column(db.Float)
-    # gis_loc = db.Column(db.String(128))
-    # jid = db.Column(db.Integer)
 
     companyShortName =  db.Column(db.String(40))
     companyFullName =  db.Column(db.String(128))
@@ -53,6 +41,7 @@ class JobModel(db.Model, ModelMixin):
     positionId = db.Column(db.String(60))
     addr = db.Column(db.String(120))
     compURL = db.Column(db.String(120))
+    source = db.Column(db.String(60))
 
     def __init__(self, info):
         self.id = str(uuid.uuid1())

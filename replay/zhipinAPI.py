@@ -7,7 +7,7 @@ import urllib
 import json
 import time
 import re
-from replay.utils import log
+from replay.utils import *
 
 headers ={
         'Cookie': 'sid=sem_pz_bdpc_dasou_title; JSESSIONID=""; Hm_lvt_194df3105ad7148dcf2b98a91b5e727a=1536223709; __g=sem_pz_bdpc_dasou_title; lastCity=101040100; toUrl=https%3A%2F%2Fwww.zhipin.com%2Fjob_detail%2F%3Fquery%3Djava%26scity%3D101040100%26industry%3D%26position%3D; __c=1536223771; __l=r=https%3A%2F%2Fwww.zhipin.com%2F%3Fsid%3Dsem_pz_bdpc_dasou_title&l=%2Fwww.zhipin.com%2Fjob_detail%2F%3Fquery%3Djava%26scity%3D101040100%26industry%3D%26position%3D&g=%2Fwww.zhipin.com%2F%3Fsid%3Dsem_pz_bdpc_dasou_ti; Hm_lpvt_194df3105ad7148dcf2b98a91b5e727a=1536223776; __a=10166106.1536223705.1536223705.1536223771.3.2.2.3',
@@ -46,7 +46,7 @@ class ZhipinAPI(object):
 
     # 解析页面中的job列表
     @classmethod
-    def parser_page(text):
+    def parser_page(cls, text):
         host = 'https://www.zhipin.com'
         urls = []
 
@@ -60,7 +60,7 @@ class ZhipinAPI(object):
         return urls
 
     @classmethod
-    def parser_detail(url):
+    def parser_detail(cls, url):
         response = requests.get(url, headers=headers, verify=False)
         if response.status_code == 200:
             text = response.text
@@ -83,7 +83,7 @@ class ZhipinAPI(object):
         companySize = soup.select('.info-company p')[0].contents[2]
         industryField = soup.select('.info-company p a[ka="job-detail-brandindustry"]')[0].get_text()
         education = soup.select('.job-primary .info-primary p')[0].contents[4][3:]
-        addr = soup.select('.job-sec .job-location .location-address')[0]
+        addr = soup.select('.job-sec .job-location .location-address')[0].get_text()
         compURL = url
 
         d = dict(

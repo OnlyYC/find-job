@@ -8,3 +8,13 @@ def log(*args, **kwargs):
     dt = time.strftime(format, value)
     with open('log.txt', 'a', encoding='utf-8') as f:
         print(dt, *args, file=f, **kwargs)
+
+
+# 获取代理
+def get_proxy():
+    proxies = {'http': '118.190.95.35:9001', 'https': 'https://117.158.81.151:53281'}
+    return proxies
+
+
+# 设置代理不可用
+# def setProxyUnavailable(url):

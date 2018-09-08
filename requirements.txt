@@ -1,5 +1,7 @@
 --upgrade pip
+lxml
 flask
 flask-migrate
+flask_script
 requests
 bs4

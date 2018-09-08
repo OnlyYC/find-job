@@ -15,8 +15,8 @@
 ----------
 后台基于flask开发，可以用Python环境直接运行。
 1. pip环境下安装在static下的package
- pip install -r requirements.txt
-2. python app.py server
+ `pip install -r requirements.txt`
+2. `python app.py server`
 3. 访问 http://localhost:3000/
 
 TODO
@@ -25,6 +25,10 @@ TODO
 2. 添加其他地图功能
 3. 支持boss直聘、猎聘、等其它招聘网站
 
+
+安装问题
+---
+安装lxml失败的话，[参考](https://blog.csdn.net/sinat_21302587/article/details/61935447)
 
 License
 --------

@@ -2,15 +2,12 @@ from flask import Flask
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 
-
 from models import db
+from routes.job import main as routes_job
+
 # 这里 import 具体的 Model 类是为了给 migrate 用
 # 如果不 import 那么无法迁移
 # 这是 SQLAlchemy 的机制
-from models.job import JobModel
-from models.user import User
-
-from routes.job import main as routes_job
 # from routes.admin_views import admin
 # from routes.chest_views import chest
 # from routes.question_views import question

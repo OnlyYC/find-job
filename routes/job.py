@@ -1,6 +1,6 @@
 
 from routes import *
-from replay.spider import lagou_spider
+from replay.spider import *
 from models.job import JobModel
 from flask import jsonify
 
@@ -25,7 +25,8 @@ def jobs_json():
 
 @main.route('/spider')
 def spider():
-    lagou_spider()
+    # lagou_spider()
+    zhipin_spider()
     return 'hello'
 
 

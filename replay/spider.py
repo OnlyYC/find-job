@@ -53,6 +53,6 @@ def zhipin_spider():
 
 
 if __name__ == '__main__':
-    lagou_spider()
-    # zhipin_spider()
+    # lagou_spider()
+    zhipin_spider()
 
